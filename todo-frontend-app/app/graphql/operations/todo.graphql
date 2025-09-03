@@ -1,0 +1,49 @@
+# Queries
+query Todos($completed: Boolean) {
+  todos(completed: $completed) {
+    id
+    title
+    description
+    completed
+    createdAt
+    updatedAt
+  }
+}
+
+query Todo($id: ID!) {
+  todo(id: $id) {
+    id
+    title
+    description
+    completed
+    createdAt
+    updatedAt
+  }
+}
+
+# Mutations
+mutation CreateTodo($input: TodoInput!) {
+  createTodo(input: $input) {
+    id
+    title
+    description
+    completed
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateTodo($id: ID!, $input: TodoUpdateInput!) {
+  updateTodo(id: $id, input: $input) {
+    id
+    title
+    description
+    completed
+    createdAt
+    updatedAt
+  }
+}
+
+mutation DeleteTodo($id: ID!) {
+  deleteTodo(id: $id)
+}
