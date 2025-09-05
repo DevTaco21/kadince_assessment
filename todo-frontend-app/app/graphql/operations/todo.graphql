@@ -21,6 +21,30 @@ query Todo($id: ID!) {
   }
 }
 
+query TodosPaginated($limit: Int!, $offset: Int!, $completed: Boolean) {
+  todosPaginated(limit: $limit, offset: $offset, completed: $completed) {
+    items {
+      id
+      title
+      description
+      completed
+      createdAt
+      updatedAt
+    }
+    pageInfo {
+      total
+      limit
+      offset
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+query TotalCount($completed: Boolean) {
+  totalCount(completed: $completed)
+}
+
 # Mutations
 mutation CreateTodo($input: TodoInput!) {
   createTodo(input: $input) {
